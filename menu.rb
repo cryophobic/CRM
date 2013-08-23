@@ -1,6 +1,6 @@
 #Welcome to the CRM app! Hope you enjoy all the awesome Ruby!
-  require "./database"
- require "./contacts"
+require "./database"
+require "./contacts"
 
   class CRM
 
@@ -12,21 +12,12 @@
       print_main_menu
       user_selected = gets.to_i
       call_option(user_selected)
-      # puts.dislpay_contacts
+      #dislpay_contacts
 
       # while user_selected != 6 
       #   main_menu
       # end
 
-    end
-
-    def call_option(user_selected)
-      add_new_contact         if user_selected == 1
-      modify_existing_contact if user_selected == 2
-      delete_a_contact        if user_selected == 3
-      dislpay_all_contacts    if user_selected == 4
-      display_an_attribute    if user_selected == 5
-      exit                    if user_selected == 6
     end
 
     def print_main_menu
@@ -37,6 +28,15 @@
       puts "[5] Display an attribute" 
       puts "[6] Exit"
       puts "Enter a number: "
+    end
+
+    def call_option(user_selected)
+      add_new_contact         if user_selected == 1
+      modify_contacts         if user_selected == 2
+      delete_a_contact        if user_selected == 3
+      dislpay_all_contacts    if user_selected == 4
+      display_an_attribute    if user_selected == 5
+      exit                    if user_selected == 6
     end
 
     def add_new_contact
@@ -50,8 +50,19 @@
       note = gets.chomp
       contact = Contact.new(first_name, last_name, email, note)
       Database.add_contact(contact)
-      puts contact.inspect
+      puts contact
     end
+
+    def display_contacts
+      puts contact 
+    end
+
+    def modify_contacts
+
+    end
+
+
+  end
+
 session = CRM.new("Welcome to CRM v.000052")
 session.main_menu
-end

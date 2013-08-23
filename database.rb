@@ -1,6 +1,6 @@
 #This is the database!
 require "./contacts"
-require "./menu"
+
 
 class Database
 
@@ -11,7 +11,7 @@ class Database
 		contact.id = @id
 		@contacts << contact
 		@id += 1
-		puts @id.inspect
+		#puts @id.inspect
 
 	end
 
