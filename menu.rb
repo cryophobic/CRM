@@ -1,6 +1,7 @@
 #Welcome to the CRM app! Hope you enjoy all the awesome Ruby!
 require "./database"
 require "./contacts"
+require "./modify"
 
   class CRM
 
@@ -50,19 +51,41 @@ require "./contacts"
       note = gets.chomp
       contact = Contact.new(first_name, last_name, email, note)
       Database.add_contact(contact)
+      puts contact 
+      main_menu
+    end
+
+    def display_all_contacts
       puts contact
     end
 
-    def display_contacts
-      puts contact 
-    end
-
     def modify_contacts
+      database.display_all_contacts
+      email = gets.chomp
+      contact = Database.find_all_contacts(email)
+      main_menu
+    end
+
+    def delete_a_contact
 
     end
+
+    def dislpay_all_contacts
+
+    end
+
+    def display_an_attribute
+
+    end
+
+    def exit
+
+    end
+
 
 
   end
 
-session = CRM.new("Welcome to CRM v.000052")
+puts "\e[H\e[2J"
+session = CRM.new("Welcome to CRM v.000072")
 session.main_menu

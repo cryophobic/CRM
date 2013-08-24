@@ -19,6 +19,27 @@ class Database
 	@contacts
 	end
 
+	def self.find_all_contacts(email)
+		@contacts.each do |contact|
+
+			if email == contact.email
+
+				puts "id #{contact.id}"
+
+				user_selected = gets.to_i
+
+				case user_selected
+				when 1 
+					puts "New ID"
+					gets.chomp
+					puts "Good job"
+				end
+
+			when 2
+				puts ""
+				end
+			end
+
 	# def display_contacts
 	# 	puts contact.email
 	# end
